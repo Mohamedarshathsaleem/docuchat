@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: docuchat
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 6MB
+  ai:
+    openai:
+      # Gemini's OpenAI-compatible API: https://ai.google.dev/gemini-api/docs/openai
+      api-key: ${GEMINI_API_KEY:missing-key}
+      base-url: https://generativelanguage.googleapis.com/v1beta/openai
+      chat:
+        completions-path: /chat/completions
+        options:
+          model: ${GEMINI_CHAT_MODEL:gemini-2.5-flash}
+          temperature: 0.2
+      embedding:
+        embeddings-path: /embeddings
+        options:
+          model: ${GEMINI_EMBEDDING_MODEL:gemini-embedding-001}
+
+docuchat:
+  storage-dir: ${DOCUCHAT_STORAGE_DIR:./data}
+  retrieval:
+    top-k: 5
+    similarity-threshold: 0.3
+  limits:
+    max-pages: 50
+    document-ttl: 24h
+  rate-limit:
+    requests-per-minute: ${DOCUCHAT_RATE_LIMIT:20}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health

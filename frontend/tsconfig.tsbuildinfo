@@ -1,0 +1,1 @@
+{"root":["./src/App.tsx","./src/api.ts","./src/main.tsx","./src/components/ChatPanel.tsx","./src/components/DocumentList.tsx","./src/components/UploadPanel.tsx","./src/test/ChatPanel.test.tsx","./src/test/UploadPanel.test.tsx","./src/test/setup.ts","./vite.config.ts"],"version":"5.9.3"}

@@ -1,0 +1,13 @@
+# One-click deploy: Render → New → Blueprint → pick this repo, then set GEMINI_API_KEY.
+services:
+  - type: web
+    name: docuchat
+    runtime: docker
+    plan: free
+    region: singapore
+    healthCheckPath: /actuator/health
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: DOCUCHAT_RATE_LIMIT
+        value: "15"
